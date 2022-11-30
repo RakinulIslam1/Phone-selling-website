@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useContext(AuthContext);
+
+  const handlelogout =() => {
+    logout()
+      .then(() => {})
+      .catch((err) => console.error(err));
+    
+  } 
 
   return (
     <div class="bg-gray-900">
@@ -54,36 +63,30 @@ export const Header = () => {
                 Blog
               </Link>
             </li>
-            {/* <li>
-              <Link
-                to="/"
-                aria-label="Product pricing"
-                title="Product pricing"
-                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                aria-label="About us"
-                title="About us"
-                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                About us
-              </Link>
-            </li> */}
-            <li>
-              <Link
-                to="/login"
-                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </Link>
-            </li>
+
+            {user?.email ? (
+              <li onClick={handlelogout}>
+                <Link
+                  to="#"
+                  class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  aria-label="Sign up"
+                  title="Sign up"
+                >
+                  Logout
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  to="/login"
+                  class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  aria-label="Sign up"
+                  title="Sign up"
+                >
+                  SignUp
+                </Link>
+              </li>
+            )}
           </ul>
 
           <div class="lg:hidden">

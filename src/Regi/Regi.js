@@ -1,12 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../components/Context/AuthProvider';
 
 const Regi = () => {
+    const {login} = useContext(AuthContext);
+    const location = useLocation()
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+
+    const handleLogIn = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        login(email, password)
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+             navigate(from, { replace: true });
+          })
+          .catch((err) => console.error(err));
+    }
+    
+
+
+
     return (
       <div>
         <div className="w-1/3 my-10 mx-auto p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
           <h1 className="text-2xl font-bold text-center">Log in</h1>
           <form
+          onSubmit={handleLogIn}
             novalidate=""
             action=""
             className="space-y-6 ng-untouched ng-pristine ng-valid"
