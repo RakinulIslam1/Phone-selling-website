@@ -3,6 +3,8 @@ import './App.css';
 import Blog from './components/Blog/Blog';
 import Home from './components/Home/Home';
 import Main from './components/Main/Main';
+import Login from './Login/Login';
+import Regi from './Regi/Regi';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,12 +24,20 @@ function App() {
           path: 'blog',
           element: <Blog></Blog>
         },
+        {
+          path: 'login',
+          element: <Login></Login>
+        },
+        {
+          path: 'regi',
+          element: <Regi></Regi>
+        }
       ]
       
     }
   ])
   return (
-    <div className="App">
+    <div className="">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

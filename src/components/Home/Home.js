@@ -3,7 +3,7 @@ import React from 'react';
 export const Home = () => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className='-mt-12'>
+      <div className="-mt-12">
         <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
           <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
             <svg
@@ -23,25 +23,24 @@ export const Home = () => {
           <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
             <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
               <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                Brand new
+                Used Phones collection
               </p>
               <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Everything you
                 <br className="hidden md:block" />
-                can imagine{" "}
+                can imagine
                 <span className="inline-block text-deep-purple-accent-400">
                   is real
                 </span>
               </h2>
               <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae. explicabo.
+                Only buy something that you'd be perfectly happy to hold if the
+                market shut down for 10 years.
               </p>
               <div className="flex items-center">
                 <a
                   href="/"
-                  className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  className="inline-flex items-center justify-center h-12 px-6 mr-6 font-semibold bg-blue-600 text-white tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                 >
                   Get started
                 </a>
@@ -57,22 +56,15 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      {/* part2 */}
       <div className="flex flex-col items-center justify-between lg:flex-row mt-20">
         <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
           <div className="max-w-xl mb-6">
             <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              The quick, brown fox
-              <br className="hidden md:block" />
-              jumps over{" "}
-              <span className="inline-block text-deep-purple-accent-400">
-                a lazy dog
-              </span>
+              Sell the problem you solve, not the product.
             </h2>
             <p className="text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+              I prefer buying things and figuring out where to put them later
+              than regretting not buying them.
             </p>
           </div>
         </div>
