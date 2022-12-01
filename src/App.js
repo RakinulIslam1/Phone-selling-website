@@ -3,6 +3,7 @@ import './App.css';
 import Blog from './components/Blog/Blog';
 import Home from './components/Home/Home';
 import Main from './components/Main/Main';
+import AllPhones from './components/PhoneCtg/AllPhones';
 import Login from './Login/Login';
 import Regi from './Regi/Regi';
 
@@ -31,6 +32,10 @@ function App() {
         {
           path: 'regi',
           element: <Regi></Regi>
+        },
+        {
+          path:'/allPhones/:id',
+          element: <AllPhones></AllPhones>
         }
       ]
       
