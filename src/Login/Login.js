@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../components/Context/AuthProvider';
 
 const Login = () => {
-    const {createUser} = useContext(AuthContext);
+    const { createUser, google } = useContext(AuthContext);
 
     const handleSingup = e =>{
         e.preventDefault();
@@ -18,10 +18,14 @@ const Login = () => {
         })
         .catch(err => console.error(err))
     }
-
-
-
-
+    // const handlegoogle = () =>{
+    //   google()
+    //     .then((result) => {
+    //       const user = result.user;
+    //       console.log(user);
+    //     })
+    //     .catch((err) => console.error(err));
+    // }
 
     return (
       <div>
