@@ -1,12 +1,15 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/Context/AuthProvider';
 
 const Regi = () => {
-    const {login} = useContext(AuthContext);
+    const {login, google} = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
+        const googleProvider = new GoogleAuthProvider();
+
 
     const handleLogIn = e =>{
         e.preventDefault();
@@ -24,7 +27,15 @@ const Regi = () => {
           .catch((err) => console.error(err));
     }
     
-
+     const handlegoogle = () => {
+       google(googleProvider)
+         .then((result) => {
+           const user = result.user;
+           console.log(user);
+           navigate(from, { replace: true });
+         })
+         .catch((err) => console.error(err));
+     };
 
 
     return (
@@ -32,7 +43,7 @@ const Regi = () => {
         <div className="w-1/3 my-10 mx-auto p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
           <h1 className="text-2xl font-bold text-center">Log in</h1>
           <form
-          onSubmit={handleLogIn}
+            onSubmit={handleLogIn}
             novalidate=""
             action=""
             className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -73,7 +84,11 @@ const Regi = () => {
             <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
           </div>
           <div className="flex justify-center space-x-4">
-            <button aria-label="Log in with Google" className="p-3 rounded-sm">
+            <button
+              onClick={handlegoogle}
+              aria-label="Log in with Google"
+              className="p-3 rounded-sm"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
